@@ -2,28 +2,25 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 
-//import App from './App.tsx'
+// import App from './App'
 import './index.css'
-import Header from './components/Header'
 import Home from './pages/Home'
-import Lista_Servico from './pages/listaServiço'
-import CadastroDev from './pages/Cadastro_Dev'
-
+import Header from './components/Header'
+import ListaDevs from './pages/ListaDev'
+import ListaServicos from './pages/ListaServiço'
+import Footer from './components/Footer'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header/>
+      <Header />
       <Routes>
-
-        <Route path="/" element={<Home />} />
-        <Route path="/listaServico" element={<Lista_Servico />} />
-        <Route path='ListaDev' element={<CadastroDev/>}></Route>
-              
-
+        <Route path='/' element={ <Home /> } />
+        <Route path='listadevs' element={ <ListaDevs /> } />
+        <Route path='listaservicos' element={ <ListaServicos /> } />
+        
       </Routes>
-      {/*  <Footer/> */}
-      <Home/>
+      <Footer />      
     </BrowserRouter>
-   </React.StrictMode>,
+  </React.StrictMode>
 )
