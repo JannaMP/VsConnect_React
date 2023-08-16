@@ -29,7 +29,14 @@ export default function ListaDevs() {
             nome: "Aléxia Vitória",
             email: "alexia@email.com",
             skills: ["PYTHON", "VUE", "REACT"]
+        },
+        {
+            img_perfil: "https://github.com/JannaMP.png",
+            nome: "Janaina Mota",
+            email: "janna@email.com",
+            skills: ["REACT", "HTML", "CSS"]
         }
+
 
     ]);
 
