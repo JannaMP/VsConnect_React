@@ -1,35 +1,21 @@
 import CardDev from "../../components/CardDev"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./style.css"
 
-export default function ListaServicos() {
+import api from "../../utils/api"
 
-    const  [serv, setServ] = useState<any[]>([
+function ListaServicos() {
 
-        {
-            nomeServ: ["Desenvolvimento de site institucional - Gateway de Pagamento / Fintech"],
-            valor: "R$ 1300,00",
-            descricao: ["Desenvolver um site responsivo que seja utilizado como uma plataforma de apresentação do nosso gateway de pagamento. O objetivo principal deste projeto é criar um site atraente e informativo, que demonstre as funcionalidades e benefícios do nosso gateway de pagamento para potenciais clientes."],
-            techs: ["HTML", "CSS", "REACT"]
-        },
-        {
-            nomeServ: ["Bot telegram Pagamento"],
-            valor: "R$ 2400,00",
-            descricao: ["Preciso fazer um código em python para um bot do telegram. O bot será para solicitação de pagamento."],
-            techs: ["PYTHON"]
-        },
-        {
-            nomeServ: ["Caixa Rápido"],
-            valor: "R$ 1200,00",
-            descricao: ["Preciso fazer um software que permita ao usuário fazer o upload de seu extrato bancário em formato( ofx). Dentro do software o mesmo poderá categorizar todas as suas receitas e despesas, tendo categorias sugeridas pelo software e permitindo também personalizações. Após o lançamento de vários extratos o software irá entender que são lançamentos parecidos e fará a categorização de maneira automática, cabendo ao usuário somente categorizar as receitas e despesas que não se repetem. Após a categorização o software irá emitir gráficos e relatórios baseados na categorização das contas."],
-            techs: ["PYTHON"]
-        },
-
-    ])
+    const  [serv, setServ] = useState<any[]>([]);
 
     const [techsDigitada, setTechsDigitada] = useState<string>("");
 
     const [servFiltrados, setServFiltrados] = useState<any[]>(serv);
+
+    useEffect(() =>{
+        document.title = "Lista Servicos - VSConnect"
+        listarServicos()
+    }, [] )
 
     function buscarPorServ(event: any){
         event.preventDefault();
@@ -50,9 +36,15 @@ export default function ListaServicos() {
         setTechsDigitada(event.target.value)
     }
 
+    function listarServicos(){
+        api.get("servicos").then((response: any) =>{
+            console.log(response.data)
+            setServ(response.data)
 
+        })
+    }
 
-    
+ 
 
     return (
         <main id="lista-servicos">
@@ -90,3 +82,5 @@ export default function ListaServicos() {
         </main>
     )
 }
+
+export default ListaServicos;
