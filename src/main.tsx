@@ -13,6 +13,8 @@ import CadastroDev from './pages/CadastroDev'
 import CadastroServ from './pages/CadastroServ'
 import Login from './pages/Login'
 import PerfilUsuario from './pages/PerfilUsuario'
+import VisualizarServico from './pages/VisualizarServiço'
+import CadastroUsuario from './pages/CadastroUsuario'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -26,6 +28,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path='cadastroserv' element={ <CadastroServ /> } />
         <Route path='login' element={ <Login /> } />
         <Route path='perfil/:idUsuario' element={<PerfilUsuario />} />
+        <Route path='visualizarservico' element={<VisualizarServico />} />
+        <Route path='cadastrousuario' element={<CadastroUsuario />} />
+
      
       </Routes>
       <Footer />      

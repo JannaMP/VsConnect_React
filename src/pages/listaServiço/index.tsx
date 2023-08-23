@@ -1,4 +1,4 @@
-import CardDev from "../../components/CardDev"
+import CardDev from "../../components/CardServ"
 import { useEffect, useState } from "react"
 import "./style.css"
 
@@ -40,6 +40,7 @@ function ListaServicos() {
         api.get("servicos").then((response: any) =>{
             console.log(response.data)
             setServ(response.data)
+            
 
         })
     }
@@ -64,8 +65,9 @@ function ListaServicos() {
                         <div className="wrapper_lista">
                             <ul>
                             {servFiltrados.map((serv: any, index: number) => {
-                                    return <li>
+                                    return <li key={index}>
                                           <CardDev 
+                                          id={serv.id}
                                           nomeServ={serv.nomeServ}
                                           valor={serv.valor}
                                           descricao={serv.descricao}
