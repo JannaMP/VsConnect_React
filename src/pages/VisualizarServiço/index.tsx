@@ -23,8 +23,11 @@ function VisualizarServico() {
             setValor(response.data.valor)
             setDescricao(response.data.descricao)
             setListaSkills(response.data.techs)
+        }).catch((error) => {
+            console.log("Erro ao buscar os dados", error)
         })
     }
+    
 
     useEffect(() => {
         buscarServicoPorID()

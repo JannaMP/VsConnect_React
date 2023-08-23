@@ -55,6 +55,7 @@ function CadastroUsuario() {
         formdata.append("user_img", foto)
         formdata.append("cep", cep)
         formdata.append("logradouro", logradouro)
+        formdata.append("cidade", cidade)
         formdata.append("numero", numero)
         formdata.append("bairro", bairro)
         formdata.append("numero", numero)
@@ -62,7 +63,7 @@ function CadastroUsuario() {
 
         formdata.append("hardSkills", JSON.stringify(skillsSelecionadas))
 
-        api.post("users", formdata).then( (Response) => {
+        api.post("users", formdata).then( (response) => {
             alert("usuario criado com sucesso!")
             //navegacao para login
         
