@@ -17,6 +17,13 @@ function VisualizarServico() {
     const [descricao, setDescricao] = useState<string>("")
     const [listaSkills, setListaSkills] = useState<string[]>([])
 
+    
+    useEffect(() => {
+        buscarServicoPorID()
+        document.title = "Serviço " + nameServ + " - VSConnect"
+    },[])
+
+
     function buscarServicoPorID(){
         api.get(`servicos/${idServico}`).then((response:any) => {
             setNameServ(response.data.nome)
@@ -28,11 +35,6 @@ function VisualizarServico() {
         })
     }
     
-
-    useEffect(() => {
-        buscarServicoPorID()
-        document.title = "Serviço " + nameServ + " - VSConnect"
-    },[])
 
 
     return (
